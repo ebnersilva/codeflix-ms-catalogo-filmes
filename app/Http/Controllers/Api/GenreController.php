@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Gender;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
-class GenderController extends Controller
+class GenreController extends Controller
 {
     private $rules = [
         'name' => 'required|max:255',
@@ -14,30 +14,30 @@ class GenderController extends Controller
 
     public function index()
     {
-        return Gender.all();
+        return Genre::all();
     }
 
     public function store(Request $request)
     {
         $this->validate($request, $this->rules);
-        return Category::create($request->all());
+        return Genre::create($request->all());
     }
 
-    public function show(Gender $gender)
+    public function show(Genre $genre)
     {
-        return $gender;
+        return $genre;
     }
 
-    public function update(Request $request, Gender $gender)
+    public function update(Request $request, Genre $genre)
     {
         $this->validate($request, $this->rules);
-        $gender->update($request->all());
-        return $gender;
+        $genre->update($request->all());
+        return $genre;
     }
 
-    public function destroy(Gender $gender)
+    public function destroy(Genre $genre)
     {
-        $gender->delete();
+        $genre->delete();
         return response()->noContent();
     }
 }
