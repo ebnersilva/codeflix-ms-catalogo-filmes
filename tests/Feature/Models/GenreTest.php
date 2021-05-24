@@ -40,11 +40,8 @@ class GenreTest extends TestCase
         $genre->refresh();
         $this->assertEquals('test1', $genre->name);
         $this->assertTrue($genre->is_active);
-
-        $category = Genre::create([
-            'name' => 'Teste'
-        ]);
-        $this->assertTrue(Uuid::isValid($category->id));
+        $this->assertEquals(36, strlen($genre->id));
+        $this->assertTrue(Uuid::isValid($genre->id));
 
         $genre = Genre::create([
             'name' => 'test1',

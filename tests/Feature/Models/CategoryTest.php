@@ -44,11 +44,9 @@ class CategoryTest extends TestCase
         $this->assertEquals('test1', $category->name);
         $this->assertNull($category->description);
         $this->assertTrue($category->is_active);
-
-        $category = Category::create([
-            'name' => 'Teste'
-        ]);
         $this->assertTrue(Uuid::isValid($category->id));
+        $this->assertEquals(36, strlen($category->id));
+
 
         $category = Category::create([
             'name' => 'test1',
