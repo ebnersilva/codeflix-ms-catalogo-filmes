@@ -13,4 +13,5 @@ class GenreSeeder extends Seeder
     {
         factory(\App\Models\Genre::class, 100)->create();
     }
+
 }
